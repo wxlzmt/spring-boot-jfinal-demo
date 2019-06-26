@@ -17,7 +17,7 @@ import io.github.wxlzmt.sbjd.config.JfinalMainConfig;
 public class RunSpringBootJfinalDemoApplication {
 
     public static void main(String[] args) {
-        if (args == null || args.length == 0) {
+        if (args == null || args.length == 0) {//加这个if是为了方便在集成开发环境下运行,即:默认dev环境
             args = new String[] { "--spring.profiles.active=dev" };
         }
         SpringApplication.run(RunSpringBootJfinalDemoApplication.class, args);
