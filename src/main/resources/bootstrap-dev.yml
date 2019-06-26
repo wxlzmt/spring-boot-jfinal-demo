@@ -1,0 +1,49 @@
+eureka:
+  client: 
+    service-url: 
+      defaultZone: http://admin:123456@192.168.8.8:1111/eureka/
+    enabled: false
+  instance: 
+    metadata-map: 
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+spring: 
+  cloud: 
+    config: 
+      enabled: false
+      discovery: 
+        enabled: false
+        service-id: config-server
+      profile: dev
+      name: default
+  security: 
+    user: 
+      name: admin
+      password: 123456
+      
+server: 
+  port: 8080
+  use-forward-headers: true
+
+management: 
+  endpoints: 
+    web: 
+      exposure: 
+        include:
+          - '*'
+  endpoint:
+    health:
+      show-details: always
+health:
+  config:
+    enabled: true
+
+logging: 
+  level: 
+    root: INFO
+    io.github.wxlzmt: DEBUG
+
+
+
+
+      
